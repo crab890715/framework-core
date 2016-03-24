@@ -1,8 +1,6 @@
 package com.framework.core.app.comm.utils;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -20,7 +18,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.framework.core.app.comm.ConfigFactory;
 import com.framework.core.app.comm.Constant;
 
 public class AppUtils {
@@ -51,9 +48,6 @@ public class AppUtils {
     }
     public static String imageurl(String uri){
         return baseurl()+"/images/"+uri;
-    }
-    public static String coupon(String uri){
-        return ConfigFactory.getString("coupon.base.url")+uri;
     }
     public static String version(){
         return String.valueOf(VERSION);
@@ -160,37 +154,4 @@ public class AppUtils {
      * @param name
      */
     public static void deleteCookie(String name){ setCookie(name,"",0);}
-    
-    /**
-     * 概率算法,以Map中的value为权重算概率，权重越大概率越大
-     * @return 返回某个value权重对应的key
-     */
-    public static int getRand(Map<Integer,Integer> proArr,int proSum) {
-    	int result = 0;
-		Random rand = new Random();
-		for(Map.Entry<Integer,Integer> entry:proArr.entrySet()){
-	        //System.out.println(entry.getKey()+"--->"+entry.getValue());
-	        int randNum = rand.nextInt(proSum);
-	        randNum += 1;
-	        if(randNum <= entry.getValue()) {
-				result = entry.getKey();
-				break;
-			} else {
-				proSum -= entry.getValue();
-			}
-	        
-		} 
-		/*for(int i=0;i<proArr.length;i++) {
-			int randNum = rand.nextInt(proSum); 
-			randNum += 1;
-			if(randNum <= proArr[i]) {
-				result = i;
-				break;
-			} else {
-				proSum -= proArr[i];
-			}
-		}*/
-		return result;
-    }
-    
 }

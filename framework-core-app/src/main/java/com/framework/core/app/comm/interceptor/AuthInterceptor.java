@@ -19,10 +19,9 @@ import com.framework.core.app.biz.WeixinBiz;
 import com.framework.core.app.comm.Result;
 import com.framework.core.app.comm.annotations.RequireAuthed;
 import com.framework.core.app.comm.utils.AppUtils;
-import com.framework.core.app.controller.wechat.RedpacketsController;
 
 public class AuthInterceptor implements HandlerInterceptor{
-	private Logger log = Logger.getLogger(RedpacketsController.class);
+	private Logger log = Logger.getLogger(AuthInterceptor.class);
 	@Autowired
 	private WeixinBiz weixinBiz;
 	private final String key = "time20160317";

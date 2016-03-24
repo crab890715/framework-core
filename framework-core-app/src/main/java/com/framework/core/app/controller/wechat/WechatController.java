@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.framework.core.api.model.WechatTemp;
 import com.framework.core.app.biz.DispatcherBiz;
-import com.framework.core.app.biz.RedpacketsBiz;
 import com.framework.core.app.biz.WeixinBiz;
 import com.framework.core.app.comm.Constant;
 import com.framework.core.app.comm.cache.GuavaCache;
@@ -34,8 +33,6 @@ public class WechatController {
 	private DispatcherBiz dispatcherBiz;
 	@Autowired
 	private GuavaCache userCache;
-	@Autowired
-	private RedpacketsBiz redpacketsBiz;
 	/**
 	 * 静默授权,授权成功并把openid保存到cookie
 	 * @param code
