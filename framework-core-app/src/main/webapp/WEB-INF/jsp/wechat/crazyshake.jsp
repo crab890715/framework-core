@@ -9,11 +9,11 @@
 <%@include file="../commons/commons-head.jsp"%>
 </head>
 <body>
-	<c:out value="${bc:image('demo.png') }"></c:out>
-	<bc:img src="demo.png" type="image"></bc:img>
+	<c:out value="${b:image('demo.png') }"></c:out>
+	<b:img src="demo.png" type="image"></b:img>
 	<div>
-		<bc:img src="demo.png" css="ammm" style="width:100%;"></bc:img>
+		<b:img src="demo.png" css="ammm" style="width:100%;"></b:img>
 	</div>
-	${bc:image("demo.png")}
+	${b:image("demo.png")}
 </body>
 </html>

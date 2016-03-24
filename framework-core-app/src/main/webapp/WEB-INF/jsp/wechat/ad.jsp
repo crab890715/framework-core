@@ -9,7 +9,7 @@
 <%@include file="../commons/commons-head.jsp"%>
 <script type="text/javascript"
 	src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
-<bc:weixin name="shareConfig"></bc:weixin>
+<b:weixin name="shareConfig"></b:weixin>
 </head>
 <body>
 	<span>${shareConfig.ticket }</span>

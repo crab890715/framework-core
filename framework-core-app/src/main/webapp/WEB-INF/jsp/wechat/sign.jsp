@@ -10,8 +10,6 @@
 <meta content="telephone=no,email=no" name="format-detection">
 <title>摇一摇签到</title>
 <%@include file="../commons/commons-head.jsp"%>
-<script language="javascript" type="text/javascript"
-	src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
 <style type="text/css">
 #bg {
 	margin: 0px;

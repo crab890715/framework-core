@@ -8,7 +8,6 @@
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,user-scalable=0" />
 <title></title>
-<bc:css href=""></bc:css>
 <style type="text/css">
 </style>
 
