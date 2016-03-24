@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://code.alibabatech.com/schema/dubbo 
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="wechatTempService" class="com.beacon.wechat.service.service.WechatTempServiceImpl"></bean>
+	<!-- <bean id="memberService" class="com.beacon.wechat.service.service.MemberServiceImpl"></bean> 
+		<bean id="userService" class="com.beacon.wechat.service.service.UserServiceImpl"></bean> 
+		<bean id="wechatTempService" class="com.beacon.wechat.service.service.WechatTempServiceImpl"></bean> 
+		<bean id="deviceService" class="com.beacon.wechat.service.service.DeviceServiceImpl"></bean> 
+		<bean id="storeService" class="com.beacon.wechat.service.service.StoreServiceImpl"></bean> 
+		<bean id="storeAdvertService" class="com.beacon.wechat.service.service.StoreAdvertServiceImpl"></bean> 
+		<bean id="devicePageService" class="com.beacon.wechat.service.service.DevicePageServiceImpl"></bean> 
+		<bean id="deviceShakeInfoService" class="com.beacon.wechat.service.service.DeviceShakeInfoServiceImpl"></bean> 
+		<bean id="couponService" class="com.beacon.wechat.service.service.CouponServiceImpl"></bean> 
+		<bean id="areaService" class="com.beacon.wechat.service.service.AreaServiceImpl"></bean> 
+		<bean id="deviceShakeCountService" class="com.beacon.wechat.service.service.DeviceShakeCountServiceImpl"></bean> 
+		<bean id="orderService" class="com.beacon.wechat.service.service.OrderServiceImpl"></bean> 
+		<bean id="wallFlagService" class="com.beacon.wechat.service.service.WallFlagServiceImpl"></bean> 
+		<bean id="wechatPaymentOrderService" class="com.beacon.wechat.service.service.WechatPaymentOrderServiceImpl"></bean> 
+		<bean id="wechatPermissionService" class="com.beacon.wechat.service.service.WechatPermissionServiceImpl"></bean> 
+		<bean id="wechatProductService" class="com.beacon.wechat.service.service.WechatProductServiceImpl"></bean> 
+		<bean id="redpackService" class="com.beacon.wechat.service.service.RedpackServiceImpl"></bean> 
+		<bean id="storeAccountService" class="com.beacon.wechat.service.service.StoreAccountServiceImpl"></bean> 
+		<bean id="storeAccountLogs" class="com.beacon.wechat.service.service.StoreAccountLogsImpl"></bean> -->
+</beans>

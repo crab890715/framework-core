@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://code.alibabatech.com/schema/dubbo 
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- MyBatis配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/config/mybatis-config.xml"></property>
+		<!-- 当mybatis的xml文件和mapper接口不在相同包下时，需要用mapperLocations属性指定xml文件的路径。 *是个通配符，代表所有的文件，**代表所有目录下 -->
+		<property name="mapperLocations"
+			value="classpath*:/com/beacon/wechat/service/dao/mapper/*.xml" />
+	</bean>
+
+	<!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.beacon.wechat.service.dao" />
+		<property name="annotationClass"
+			value="com.beacon.wechat.service.dao.MybatisRepository" />
+	</bean>
+	<!-- Tomcat JDBC连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="url" value="${jdbc.wechat.url}" />
+		<property name="username" value="${jdbc.wechat.user}" />
+		<property name="password" value="${jdbc.wechat.password}" />
+		<property name="filters" value="stat, log4j" />
+		<property name="defaultAutoCommit" value="false"></property>
+	</bean>
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager" />
+</beans>

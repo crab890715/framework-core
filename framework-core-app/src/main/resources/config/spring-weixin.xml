@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 微信配置 -->
+	<bean id="wxMpConfigStorage" class="me.chanjar.weixin.mp.api.WxMpInMemoryConfigStorage">
+		<property name="appId" value="${weixin.appId}" />
+		<property name="secret" value="${weixin.secret}" />
+		<property name="token" value="${weixin.token}" />
+		<property name="aesKey" value="${weixin.aesKey}" />
+		<!-- <property name="accessToken" value="${weixin.accessToken}"/> <property 
+			name="expiresTime" value="${weixin.expiresTime}"/> -->
+		<property name="oauth2redirectUri" value="${weixin.oauth2redirectUri}" />
+	</bean>
+	<!-- 微信服务 -->
+	<bean id="wxMpService" class="me.chanjar.weixin.mp.api.WxMpServiceImpl">
+		<property name="wxMpConfigStorage" ref="wxMpConfigStorage" />
+	</bean>
+	<bean id="wxMpMessageRouter" class="me.chanjar.weixin.mp.api.WxMpMessageRouter">
+		<constructor-arg name="wxMpService" ref="wxMpService" />
+	</bean>
+
+</beans>

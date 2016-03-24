@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://code.alibabatech.com/schema/dubbo 
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxIdle" value="${redis.pool.maxIdle}"></property>
+		<property name="maxTotal" value="${redis.pool.maxTotal}"></property>
+		<property name="testOnBorrow" value="${redis.pool.testOnBorrow}"></property>
+		<property name="testOnReturn" value="${redis.pool.testOnReturn}"></property>
+	</bean>
+	<bean id="weixinJedisPool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg index="0" ref="jedisPoolConfig" />
+		<constructor-arg index="1" value="${redis.weixin.host}" />
+		<constructor-arg index="2" value="${redis.weixin.port}" />
+		<constructor-arg index="3" value="100000" />
+		<constructor-arg index="4" value="${redis.weixin.password}" />
+	</bean>
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="poolConfig" ref="jedisPoolConfig" />
+		<property name="hostName" value="${redis.weixin.host}" />
+		<property name="port" value="${redis.weixin.port}" />
+		<property name="password" value="${redis.weixin.password}" />
+	</bean>
+	<bean id="weixinStringRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory" />
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+				<property name="targetObject" ref="weixinStringRedisTemplate" />
+				<property name="propertyPath" value="stringSerializer" />
+			</bean>
+		</property>
+		<property name="valueSerializer">
+			<bean
+				class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+				<property name="targetObject" ref="weixinStringRedisTemplate" />
+				<property name="propertyPath" value="defaultSerializer" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="shakeHistoryRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory" />
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+				<property name="targetObject" ref="weixinStringRedisTemplate" />
+				<property name="propertyPath" value="stringSerializer" />
+			</bean>
+		</property>
+		<property name="valueSerializer">
+			<bean
+				class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+				<property name="targetObject" ref="weixinStringRedisTemplate" />
+				<property name="propertyPath" value="stringSerializer" />
+			</bean>
+		</property>
+	</bean>
+</beans> 

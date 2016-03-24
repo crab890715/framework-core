@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+	default-lazy-init="true">
+	<mvc:interceptors>
+		<bean class="com.beacon.wechat.app.comm.interceptor.AuthInterceptor" />
+		<mvc:interceptor>
+			<mvc:mapping path="/wechat/*.shake" />
+			<!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
+			<bean
+				class="com.beacon.wechat.app.comm.interceptor.WeixinDispatcherInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<import resource="spring-mybatis.xml" />
+	<import resource="spring-services.xml" />
+	<import resource="spring-weixin.xml" />
+	<import resource="spring-redis.xml" />
+	<import resource="spring-memcache.xml" />
+	<import resource="spring-cache.xml" />
+	<bean class="com.beacon.wechat.app.comm.ConfigFactory" lazy-init="false">
+		<property name="locations">
+			<list>
+				<value>/config/constant.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- -->
+	<bean class="com.beacon.wechat.app.comm.utils.ThreadPoolUtils"
+		lazy-init="false">
+		<property name="corePoolSize" value="20"></property>
+		<property name="maximumPoolSize" value="100"></property>
+		<property name="keepAliveTime" value="3"></property>
+		<property name="queueSize" value="500"></property>
+	</bean>
+	<beans profile="develop">
+		<context:property-placeholder
+			location="classpath:/config/weixin.develop.properties,classpath:/config/jdbc.develop.properties,classpath:/config/redis.develop.properties,classpath:/config/memcache.develop.properties" />
+	</beans>
+	<beans profile="production">
+		<context:property-placeholder
+			location="classpath:/config/weixin.production.properties,classpath:/config/jdbc.production.properties,classpath:/config/redis.production.properties,classpath:/config/memcache.production.properties" />
+	</beans>
+	<beans profile="test">
+		<context:property-placeholder
+			location="classpath:/config/weixin.test.properties,classpath:/config/jdbc.test.properties,classpath:/config/redis.test.properties,classpath:/config/memcache.test.properties" />
+	</beans>
+</beans>
