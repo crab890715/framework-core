@@ -17,7 +17,7 @@
 		<property name="configLocation" value="classpath:/config/mybatis-config.xml"></property>
 		<!-- 当mybatis的xml文件和mapper接口不在相同包下时，需要用mapperLocations属性指定xml文件的路径。 *是个通配符，代表所有的文件，**代表所有目录下 -->
 		<property name="mapperLocations"
-			value="classpath*:/com/beacon/wechat/service/dao/mapper/*.xml" />
+			value="classpath*:/com/framework/core/service/dao/mapper/*.xml" />
 	</bean>
 
 	<!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->

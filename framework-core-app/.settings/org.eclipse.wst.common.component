@@ -4,12 +4,12 @@
 		<wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-		<dependent-module archiveName="beacon-wechat-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/beacon-wechat-service/beacon-wechat-service">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
-		<dependent-module archiveName="beacon-wechat-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/beacon-wechat-api/beacon-wechat-api">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
+        <dependent-module archiveName="framework-core-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/framework-core-service/framework-core-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="framework-core-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/framework-core-api/framework-core-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
 		<property name="java-output-path" value="/beacon-wechat-app/target/classes"/>
         <property name="context-root" value="framework-core-app"/>
 	</wb-module>

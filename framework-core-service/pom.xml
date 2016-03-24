@@ -26,8 +26,8 @@
 			<artifactId>joda-time</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>beacon-wechat-api</groupId>
-			<artifactId>beacon-wechat-api</artifactId>
+			<groupId>framework-core-api</groupId>
+			<artifactId>framework-core-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
