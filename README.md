@@ -1,2 +1,2 @@
-# beacon-wechat
-spring-boot+mybatis
+# framework-core
+spring-boot+mybatis+redis+memcache+guava
