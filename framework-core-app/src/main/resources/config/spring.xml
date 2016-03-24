@@ -13,12 +13,12 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd"
 	default-lazy-init="true">
 	<mvc:interceptors>
-		<bean class="com.beacon.wechat.app.comm.interceptor.AuthInterceptor" />
+		<bean class="com.framework.core.app.comm.interceptor.AuthInterceptor" />
 		<mvc:interceptor>
 			<mvc:mapping path="/wechat/*.shake" />
 			<!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
 			<bean
-				class="com.beacon.wechat.app.comm.interceptor.WeixinDispatcherInterceptor" />
+				class="com.framework.core.app.comm.interceptor.WeixinDispatcherInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	<import resource="spring-mybatis.xml" />
@@ -27,7 +27,7 @@
 	<import resource="spring-redis.xml" />
 	<import resource="spring-memcache.xml" />
 	<import resource="spring-cache.xml" />
-	<bean class="com.beacon.wechat.app.comm.ConfigFactory" lazy-init="false">
+	<bean class="com.framework.core.app.comm.ConfigFactory" lazy-init="false">
 		<property name="locations">
 			<list>
 				<value>/config/constant.properties</value>
@@ -35,7 +35,7 @@
 		</property>
 	</bean>
 	<!-- -->
-	<bean class="com.beacon.wechat.app.comm.utils.ThreadPoolUtils"
+	<bean class="com.framework.core.app.comm.utils.ThreadPoolUtils"
 		lazy-init="false">
 		<property name="corePoolSize" value="20"></property>
 		<property name="maximumPoolSize" value="100"></property>

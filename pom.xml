@@ -12,9 +12,9 @@
 		<version>1.3.2.RELEASE</version>
 	</parent>
 	<modules>
-		<module>beacon-wechat-app</module>
-		<module>beacon-wechat-api</module>
-		<module>beacon-wechat-service</module>
+		<module>framework-core-app</module>
+		<module>framework-core-api</module>
+		<module>framework-core-service</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

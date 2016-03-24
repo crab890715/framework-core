@@ -8,6 +8,6 @@
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
-	<bean id="weixinCache" class="com.beacon.wechat.app.comm.cache.GuavaCache"></bean>
-	<bean id="userCache" class="com.beacon.wechat.app.comm.cache.GuavaCache"></bean>
+	<bean id="weixinCache" class="com.framework.core.app.comm.cache.GuavaCache"></bean>
+	<bean id="userCache" class="com.framework.core.app.comm.cache.GuavaCache"></bean>
 </beans>

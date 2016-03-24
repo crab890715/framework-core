@@ -22,9 +22,9 @@
 
 	<!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.beacon.wechat.service.dao" />
+		<property name="basePackage" value="com.framework.core.service.dao" />
 		<property name="annotationClass"
-			value="com.beacon.wechat.service.dao.MybatisRepository" />
+			value="com.framework.core.service.dao.MybatisRepository" />
 	</bean>
 	<!-- Tomcat JDBC连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"

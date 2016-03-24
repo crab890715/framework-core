@@ -8,6 +8,6 @@
 	<typeAliases>
 		<!-- 通过package, 可以直接指定package的名字， mybatis会自动扫描你指定包下面的javabean, 并且默认设置一个别名，默认的名字为： 
 			javabean 的首字母小写的非限定类名来作为它的别名。 也可在javabean 加上注解@Alias 来自定义别名， 例如： @Alias(user) -->
-		<package name="com.beacon.wechat.api.model" />
+		<package name="com.framework.core.api.model" />
 	</typeAliases>
 </configuration> 

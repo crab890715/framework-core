@@ -8,7 +8,7 @@
 	<uri>beacon</uri>
 	<tag>
 		<name>script</name>
-		<tag-class>com.beacon.wechat.app.comm.tag.ScriptTag</tag-class>
+		<tag-class>com.framework.core.app.comm.tag.ScriptTag</tag-class>
 		<attribute>
 			<name>src</name>
 			<required>true</required>
@@ -20,14 +20,14 @@
 	</tag>
 	<tag>
 		<name>weixin</name>
-		<tag-class>com.beacon.wechat.app.comm.tag.WeixinTag</tag-class>
+		<tag-class>com.framework.core.app.comm.tag.WeixinTag</tag-class>
 		<attribute>
 			<name>name</name>
 		</attribute>
 	</tag>
 	<tag>
 		<name>css</name>
-		<tag-class>com.beacon.wechat.app.comm.tag.CssTag</tag-class>
+		<tag-class>com.framework.core.app.comm.tag.CssTag</tag-class>
 		<attribute>
 			<name>href</name>
 			<required>true</required>
@@ -39,7 +39,7 @@
 	</tag>
 	<tag>
 		<name>img</name>
-		<tag-class>com.beacon.wechat.app.comm.tag.ImageTag</tag-class>
+		<tag-class>com.framework.core.app.comm.tag.ImageTag</tag-class>
 		<attribute>
 			<name>src</name>
 			<required>true</required>
@@ -80,12 +80,12 @@
 	<function>
 		<description>get image url</description>
 		<name>image</name>
-		<function-class>com.beacon.wechat.app.comm.utils.AppUtils</function-class>
+		<function-class>com.framework.core.app.comm.utils.AppUtils</function-class>
 		<function-signature>java.lang.String imageurl(java.lang.String)</function-signature>
 	</function>
 	<tag>
 		<name>coupon</name>
-		<tag-class>com.beacon.wechat.app.comm.tag.CouponTag</tag-class>
+		<tag-class>com.framework.core.app.comm.tag.CouponTag</tag-class>
 		<attribute>
 			<name>src</name>
 			<required>true</required>
@@ -126,7 +126,7 @@
 	<function>
 		<description>get coupon url</description>
 		<name>coupon</name>
-		<function-class>com.beacon.wechat.app.comm.utils.AppUtils</function-class>
+		<function-class>com.framework.core.app.comm.utils.AppUtils</function-class>
 		<function-signature>java.lang.String coupon(java.lang.String)</function-signature>
 	</function>
 </taglib>
